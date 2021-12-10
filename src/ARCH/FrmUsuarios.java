@@ -116,6 +116,7 @@ public class FrmUsuarios extends JFrame {
 		btnNuevo.setBackground(Color.LIGHT_GRAY);
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//instanciando txtfiles 
 				String nombre = txtNombre.getText();
 				String Apellido = txtApellido.getText();
 				String Telefono = txtTelefono.getText();
@@ -123,7 +124,7 @@ public class FrmUsuarios extends JFrame {
 				String Usuario = txtUsuario.getText();
 				
 				try {
-					
+					//coneccion a la base de datos
 					Connection con = (Connection) MySQLConexion.getConexion();
 					PreparedStatement ps = con.prepareStatement("INSERT INTO usuarios (nombre, apellido, telefono, email, usuario, clave) VALUES (?,?,?,?,?,?)");
 					ps.setString(1, nombre);
@@ -152,7 +153,7 @@ public class FrmUsuarios extends JFrame {
 		btnActualizar = new JButton("Actualizar");
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//instanciando txtfiles 
 				int idusuarios = Integer.parseInt(txtId.getText());
 				String nombre = txtNombre.getText();
 				String apellido = txtApellido.getText();
@@ -161,7 +162,7 @@ public class FrmUsuarios extends JFrame {
 				String usuario = txtUsuario.getText();
 				
 				try {
-					
+					//coneccion a la base de datos y pasando parametros
 					Connection con = (Connection) MySQLConexion.getConexion();
 					PreparedStatement ps = con.prepareStatement("UPDATE usuarios SET nombre=?, apellido=?, telefono=?, email=?, usuario=? WHERE idusuarios=?");
 					ps.setString(1, nombre);
@@ -188,11 +189,12 @@ public class FrmUsuarios extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				//instanciando txtfiles 
 				int idusuarios = Integer.parseInt(txtId.getText());
 				
 				
 				try {
-					
+					//coneccion a la base de datos y pasando parametros
 					Connection con = (Connection) MySQLConexion.getConexion();
 					PreparedStatement ps = con.prepareStatement("DELETE FROM usuarios  WHERE idusuarios=?");
 					ps.setInt(1, idusuarios);
@@ -323,6 +325,8 @@ public class FrmUsuarios extends JFrame {
 	}
 	
 	private void cargarTabla() {
+		
+		//organizacion de la tabla de datos
 		DefaultTableModel modeloTabla =  (javax.swing.table.DefaultTableModel) tblUsuarios.getModel();
 		modeloTabla.setRowCount(0);
 		PreparedStatement ps;
@@ -331,6 +335,7 @@ public class FrmUsuarios extends JFrame {
 		int columnas;
 		
 		try {
+			//coneccion a la base de datos
 			 Connection con = (Connection) MySQLConexion.getConexion();
 			 ps = con.prepareStatement("SELECT nombre, apellido, telefono, email, usuario FROM	usuarios");
 			
