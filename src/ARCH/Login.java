@@ -25,7 +25,7 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUsuario;
-	private JPasswordField txtContraseña;
+	private JPasswordField txtContraseÃ±a;
 
 	/**
 	 * Launch the application.
@@ -85,9 +85,9 @@ public class Login extends JFrame {
 		panel_1.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
-		txtContraseña = new JPasswordField();
-		txtContraseña.setBounds(55, 258, 211, 32);
-		panel_1.add(txtContraseña);
+		txtContraseÃ±a = new JPasswordField();
+		txtContraseÃ±a.setBounds(55, 258, 211, 32);
+		panel_1.add(txtContraseÃ±a);
 		
 		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setForeground(new Color(204, 0, 0));
@@ -100,6 +100,7 @@ public class Login extends JFrame {
 		JButton btnRegistro = new JButton("Registrar");
 		btnRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//abriendo frm del registro
 				FrmRegistro abrir= new FrmRegistro();
 				abrir.setVisible(true);
 				dispose();
@@ -126,10 +127,11 @@ public class Login extends JFrame {
 	}
 
 	protected void Login() {
-		
+		//Confuguracion del boton loguearse
 		String usuario = txtUsuario.getText();
-		String clave = String.valueOf(txtContraseña.getPassword());
+		String clave = String.valueOf(txtContraseÃ±a.getPassword());
 
+		//Coneccion a la clase Gestion de usuarios
 		GestionUsuario gestionUsuario = new GestionUsuario();
 
 		Usuario usuario2 = new Usuario();
@@ -153,7 +155,7 @@ public class Login extends JFrame {
 	}
 	
 	private void limpiar() {
-		txtContraseña.setText("");
+		txtContraseÃ±a.setText("");
 		txtUsuario.setText("");
 	}
 		
