@@ -46,7 +46,7 @@ public class GestionUsuario {
 **/	
 
 public Usuario obtenerUsuario(Usuario usu){
-	
+	//instanciamos algunos objetos
 	Usuario usuario = null;
 	
 	Connection con = null;
@@ -54,6 +54,7 @@ public Usuario obtenerUsuario(Usuario usu){
 	ResultSet rs = null;
 	
 	try {
+		//connecion a base de datos y verificando usuarios
 	
 		con = MySQLConexion.getConexion();
 	
@@ -85,4 +86,5 @@ public Usuario obtenerUsuario(Usuario usu){
 
 
 }
+
 
