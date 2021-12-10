@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 
 public class MySQLConexion {
+	//Coneccion a la Base de Datos
 	private static final String CONTROLADOR = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/login";
 	private static final String USUARIO = "root";
@@ -27,7 +28,7 @@ public class MySQLConexion {
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error >> Driver no Instalado!!");
 		} catch (SQLException e) {
-			System.out.println("Error >> de conexiÛn con la BD");
+			System.out.println("Error >> de conexi√≥n con la BD");
 		}
 		return null;
 		
