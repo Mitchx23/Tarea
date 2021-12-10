@@ -114,6 +114,8 @@ public class FrmProductos extends JFrame {
 		btnNuevo.setBackground(Color.ORANGE);
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//Instanciando los txtFiles
 				String nombre = txtNombre.getText();
 				String marca = txtMarca.getText();
 				String categoria = txtCategoria.getText();
@@ -121,7 +123,7 @@ public class FrmProductos extends JFrame {
 				String cantidaddisp = txtCantidaddisp.getText();
 				
 				try {
-					
+					//Llamar la base de datos y pasarle la instruccion
 					Connection con = (Connection) MySQLConexion.getConexion();
 					PreparedStatement ps = con.prepareStatement("INSERT INTO productos (nombre, marca, categoria, precio, cantidaddisp) VALUES (?,?,?,?,?)");
 					ps.setString(1, nombre);
@@ -148,7 +150,7 @@ public class FrmProductos extends JFrame {
 		btnActualizar = new JButton("Actualizar");
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//Instanciando los txtFiles
 				int idproductos = Integer.parseInt(txtId.getText());
 				String nombre = txtNombre.getText();
 				String marca = txtMarca.getText();
@@ -157,7 +159,7 @@ public class FrmProductos extends JFrame {
 				String cantidaddisp = txtCantidaddisp.getText();
 				
 				try {
-					
+					//Llamar la base de datos y pasarle la instruccion
 					Connection con = (Connection) MySQLConexion.getConexion();
 					PreparedStatement ps = con.prepareStatement("UPDATE productos SET nombre=?,  marca=?, categoria=?, precio=?, cantidaddisp=? WHERE idproductos=?");
 					ps.setString(1, nombre);
@@ -185,11 +187,12 @@ public class FrmProductos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 
+				//Instanciando los txtFiles
 				int idproductos = Integer.parseInt(txtId.getText());
 				
 				
 				try {
-					
+					//Llamar la base de datos y pasarle la instruccion
 					Connection con = (Connection) MySQLConexion.getConexion();
 					PreparedStatement ps = con.prepareStatement("DELETE FROM productos  WHERE idproductos=?");
 					ps.setInt(1, idproductos);
@@ -317,6 +320,8 @@ public class FrmProductos extends JFrame {
 	}
 	
 	private void cargarTabla() {
+		
+		//Para mostrar la tabla
 		DefaultTableModel modeloTabla =  (javax.swing.table.DefaultTableModel) tblProducto.getModel();
 		modeloTabla.setRowCount(0);
 		PreparedStatement ps;
@@ -325,6 +330,7 @@ public class FrmProductos extends JFrame {
 		int columnas;
 		
 		try {
+			//Llamar la base de datos y pasarle la instruccion
 			Connection con = (Connection) MySQLConexion.getConexion();
 		     ps = con.prepareStatement("SELECT nombre, marca, categoria, precio, cantidaddisp FROM	productos");
 			
