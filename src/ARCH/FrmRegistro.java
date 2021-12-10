@@ -31,7 +31,7 @@ public class FrmRegistro extends JFrame {
 	private JTextField txtNombre;
 	private JTextField txtApellido;
 	private JTextField txtUsuario;
-	private JPasswordField txtContraseña;
+	private JPasswordField txtContraseÃ±a;
 
 
 	/**
@@ -99,9 +99,9 @@ public class FrmRegistro extends JFrame {
 		lblNewLabel_4.setBounds(568, 236, 129, 29);
 		panel_1.add(lblNewLabel_4);
 		
-		txtContraseña = new JPasswordField();
-		txtContraseña.setBounds(529, 276, 205, 20);
-		panel_1.add(txtContraseña);
+		txtContraseÃ±a = new JPasswordField();
+		txtContraseÃ±a.setBounds(529, 276, 205, 20);
+		panel_1.add(txtContraseÃ±a);
 		
 		JLabel lblNewLabel = new JLabel("Registro");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
@@ -114,13 +114,14 @@ public class FrmRegistro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String usuario = txtUsuario.getText();
-				String clave = String.valueOf(txtContraseña.getPassword());
+				String clave = String.valueOf(txtContraseÃ±a.getPassword());
 				String nombre = txtNombre.getText();
 				String apellido = txtApellido.getText();
-				
+				//Pasandole los aparametros 
 				String sql ="Insert into usuarios (usuario, clave, nombre, apellido) values (?,?,?,?)";
 				
 				try {
+					//connecion a base de datos y instanciar ls txtfiles
 					PreparedStatement pst = con.prepareStatement(sql);
 					
 					pst.setString(1, usuario);
@@ -152,6 +153,8 @@ public class FrmRegistro extends JFrame {
 		JButton btnNewButton_1 = new JButton("Loguease");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//Abrien el frm del login
 				Login abrir= new Login();
 				abrir.setVisible(true);
 				dispose();
@@ -168,7 +171,7 @@ public class FrmRegistro extends JFrame {
 	private void limpiar() {
 		txtNombre.setText("");
 		txtApellido.setText("");
-		txtContraseña.setText("");
+		txtContraseÃ±a.setText("");
 		txtUsuario.setText("");
 	}
 }
