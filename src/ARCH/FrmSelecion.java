@@ -40,6 +40,7 @@ public class FrmSelecion extends JFrame {
 		JButton btnUsuarios = new JButton("USUARIOS");
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//para mostrar el frm de los usuarios
 				FrmUsuarios abrir = new FrmUsuarios();
 				abrir.setVisible(true);
 				dispose();
@@ -54,7 +55,7 @@ public class FrmSelecion extends JFrame {
 		JButton btnProductos = new JButton("PRODUCTOS");
 		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//para mostrar el frm de los productos
 				FrmProductos abrir = new FrmProductos();
 				abrir.setVisible(true);
 				dispose();
